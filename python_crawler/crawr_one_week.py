@@ -3,9 +3,14 @@ from selenium import webdriver
 import re
 
 
-## 초기화
+# 초기화
+options = webdriver.ChromeOptions()
+options.add_argument("--headless=new")
 URL = "https://www.google.com/search?q=%EB%82%A0%EC%94%A8"
-driver = webdriver.Chrome(executable_path="chromedriver")  # 드라이버 인스턴스 생성
+driver = webdriver.Chrome(
+    executable_path="chromedriver", options=options
+)  # 드라이버 인스턴스 생성
+
 driver.get(url=URL)  # URL 초기화
 HTML = driver.page_source
 soup = BeautifulSoup(HTML, "html.parser")
