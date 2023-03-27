@@ -2,8 +2,6 @@
 
 ## python_crawler
 
----
-
 ```python
 cd python_crawler
 # 파이썬 페키지 관리도구 설치 및 페키지 설치
