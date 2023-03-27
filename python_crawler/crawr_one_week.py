@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import re
-import requests
 
 URL = "https://www.google.com/search?q=%EB%82%A0%EC%94%A8"
 
