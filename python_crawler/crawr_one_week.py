@@ -1,22 +1,21 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import re
+import requests
 
+URL = "https://www.google.com/search?q=%EB%82%A0%EC%94%A8"
 
-# 초기화
+# headless 옵션
 options = webdriver.ChromeOptions()
 options.add_argument("--headless=new")
-URL = "https://www.google.com/search?q=%EB%82%A0%EC%94%A8"
-driver = webdriver.Chrome(
-    executable_path="chromedriver", options=options
-)  # 드라이버 인스턴스 생성
 
-driver.get(url=URL)  # URL 초기화
-HTML = driver.page_source
+# 드라이버 인스턴스 생성, URL 초기화
+driver = webdriver.Chrome(executable_path="chromedriver", options=options)
+driver.get(url=URL)
+
+HTML = driver.page_source  # 날씨 구글링한 HTML 페이지 소스코드
 soup = BeautifulSoup(HTML, "html.parser")
-
-
-SVG_TEMP_GRAPH = soup.select("#wob_gsvg > text")
+SVG_TEMP_GRAPH = soup.select("#wob_gsvg > text")  # 날씨 svg 그래프만 따로 추출
 
 
 def is_temp_text(element):
