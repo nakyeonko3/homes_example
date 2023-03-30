@@ -17,7 +17,5 @@ soup = BeautifulSoup(HTML, "html.parser")
 
 print(f"주소:{주소.text}")
 print(f"현재_날씨: {현재_날씨.text}")
-
 print(f"현재_온도: {현재_온도.text}C")
-
 print(f"현재_시간: {현재_시간.text}")
