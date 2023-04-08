@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import re
+import time
 
 URL = "https://www.google.com/search?q=%EB%82%A0%EC%94%A8"
 
@@ -42,7 +43,9 @@ def extract_oneweektemperature():
         print(f"요일: { extract_dayoftheweek(element['aria-label']) }")
         print(f"온도: {element.text}")
         # print(element["style"])
+    print("break")
 
 
 extract_oneweektemperature()
+
 driver.quit()
