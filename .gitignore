@@ -25,3 +25,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arduino 
+libraries
+
+# python
+__pycache__
+.venv
