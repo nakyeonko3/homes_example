@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="{{ url_for('static', filename='css/style.css') }}"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+            integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <title>dashboard</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="topbar">
+                <div class="logo">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="search">
+                    <input type="text" id="search" placeholder="search here" />
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+                <i class="fas fa-bell"></i>
+                <div class="user">
+                    <img src="img/user.png" alt="" />
+                </div>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-th-large"></i>
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">
+                            <i class="fas fa-user-graduate"></i>
+                            <div>Students</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <div>Teacher</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <div>Employees</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-bar"></i>
+                            <div>Analytics</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <div>Earnings</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-question"></i>
+                            <div>Help</div>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="main">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">1217w</div>
+                            <div class="card-name">현재 전력량</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">cloudy</div>
+                            <div class="card-name">현재 날씨</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">1217</div>
+                            <div class="card-name">Students</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">1217</div>
+                            <div class="card-name">Students</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="charts">
+                    <div class="chart">
+                        <h2>Earnings (pasts 12 months)</h2>
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                    <div class="chart" id="doughnut-chart">
+                        <h2>Employees</h2>
+                        <canvas id="doughnut"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+        <script
+            type="module"
+            src="{{ url_for('static', filename='js/chart1.js') }}"
+        ></script>
+        <script
+            type="module"
+            src="{{ url_for('static', filename='js/chart2.js') }}"
+        ></script>
+    </body>
+</html>
