@@ -166,7 +166,7 @@
 
 .charts {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     width: 100%;
     padding: 0px 20px;
@@ -187,7 +187,7 @@
     text-align: center;
 }
 
-@media (min-width: 1115px) {
+/* @media (min-width: 1115px) {
     .sidebar {
         width: 60px;
     }
@@ -241,4 +241,4 @@
     #doughnut {
         padding: 0;
     }
-}
+} */
