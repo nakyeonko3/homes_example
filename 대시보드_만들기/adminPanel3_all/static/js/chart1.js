@@ -1,18 +1,22 @@
 (async () => {
-    const labels = ["1", "2", "3", "4", "5", "6", "7"];
+    const labels = ["1", "2", "3", "4", "5", "6", "7", "9"];
     const data = {
         labels: labels,
         datasets: [
             {
-                label: "1",
-                data: [65, 59, 80, 81, 56, 55, 40],
+                label: "측정치",
+                data: [65, 59, 80, 81, 80, NaN, NaN],
                 fill: false,
-                borderColor: "rgb(0,255,127)",
+                borderColor: "#45e8bc",
+                // segment: {
+                //     borderColor: (ctx) =>
+                //         ctx.p0.parsed.x >= 4 ? "blue" : "red",
+                // },
                 tension: 0.1,
             },
             {
-                label: "2",
-                data: [50, 29, 40, 21, 46, 25, 30],
+                label: "예상치",
+                data: [NaN, NaN, NaN, NaN, 46, 25, 30],
                 fill: false,
                 borderColor: "rgb(0,100,0)",
                 tension: 0.1,

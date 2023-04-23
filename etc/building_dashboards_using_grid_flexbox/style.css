@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 15px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 50px;
+
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: #009efa;
+
+    position: relative;
+    top: 3px;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: #009efa;
+    position: relative;
+}
+
+.main {
+    grid-area: main;
+    /* background-color: white; */
+    background-color: #f5f5f5;
+}
+.footer {
+    grid-area: footer;
+    background-color: whitesmoke;
+}
+
+/* flexing header and footer*/
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #009efa;
+    padding: 0 15px;
+}
+
+/* flexing aside */
+.aside {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 2;
+    transform: translateX(-245px);
+}
+
+.aside.active {
+    transform: translateX(0);
+}
+
+.aside_list {
+    padding: 0;
+    margin-top: 85px;
+    list-style-type: none;
+}
+
+.aside_list-item {
+    padding: 20px 20px 20px 40px;
+    color: #ddd;
+}
+
+.aside_list-item:hover {
+    background-color: royalblue;
+    cursor: pointer;
+}
+
+/* Layout for main content overview  and its cards*/
+.main_overview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border-bottom: 1px solid lightgreen; */
+}
+.overview_card {
+    flex-basis: 100px;
+    flex-grow: 1;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    /* background-color: seagreen; */
+    height: 100px;
+    /* border: 1px solid #009efa; */
+    border-radius: 10px;
+    color: #009efa;
+
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); */
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+    background-color: #ffff;
+}
+/* Layout for main-cards section // below main_overview */
+.main_cards {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4";
+    grid-gap: 10px;
+}
+.card {
+    padding: 20px;
+    /* border: 1px solid tomato; */
+    border-radius: 10px;
+    color: tomato;
+    /* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+    background-color: #ffff;
+}
+
+.card:first-child {
+    grid-area: card1;
+}
+.card:nth-child(2) {
+    grid-area: card2;
+}
+.card:nth-child(3) {
+    grid-area: card3;
+}
+
+/* responsive layout */
+@media only screen and (min-width: 750px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas:
+            "aside header"
+            "aside main"
+            "aside footer";
+        height: 100vh;
+    }
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        transform: translateX(0);
+
+        position: relative;
+    }
+
+    .main_cards {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 200px;
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4";
+        grid-gap: 10px;
+    }
+}
+
+.menu-icon {
+    position: fixed;
+    display: flex;
+    top: 2px;
+    left: 8px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    padding: 12px;
+    color: black;
+}
+
+.header_search {
+    position: relative;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin-left: 24px;
+    color: #009efa;
+}
+
+.header_search input {
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.header_search i {
+    position: relative;
+    right: 24px;
+    top: 14px;
+    cursor: pointer;
+}
+
+.header_avatar {
+    width: 30px;
+}
+.aside_close-icon {
+    position: absolute;
+    visibility: visible;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+@media only screen and (min-width: 750px) {
+    .aside_close-icon {
+        display: none;
+    }
+}

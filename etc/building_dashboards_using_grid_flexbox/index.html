@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Building dashboard with gird and flex</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+            integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="menu-icon">
+                <strong> &#9776;</strong>
+            </div>
+            <header class="header">
+                <div class="header_search">
+                    <input type="text" id="search" placeholder="search here" />
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+                <div class="header_avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </header>
+            <aside class="aside">
+                <div class="aside_close-icon">
+                    <strong>&times;</strong>
+                </div>
+                <ul class="aside_list">
+                    <li class="aside_list-item">dashboard</li>
+                    <li class="aside_list-item">Menu item2</li>
+                    <li class="aside_list-item">Menu item3</li>
+                    <li class="aside_list-item">Menu item4</li>
+                    <li class="aside_list-item">Menu item5</li>
+                </ul>
+            </aside>
+            <main class="main">
+                <div class="main_overview">
+                    <div class="overview_card">
+                        <div class="overview_card-info">Overview</div>
+                        <div class="overview_card-icon">Card1</div>
+                    </div>
+                    <div class="overview_card">
+                        <div class="overview_card-info">Overview</div>
+                        <div class="overview_card-icon">Card2</div>
+                    </div>
+                    <div class="overview_card">
+                        <div class="overview_card-info">Overview</div>
+                        <div class="overview_card-icon">Card3</div>
+                    </div>
+                    <div class="overview_card">
+                        <div class="overview_card-info">Overview</div>
+                        <div class="overview_card-icon">Card4</div>
+                    </div>
+                </div>
+
+                <div class="main_cards">
+                    <div class="card">
+                        <span>Earnings (pasts 12 months)</span>
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <span>Earnings (pasts 12 months)</span>
+                        <canvas id="doughnut"></canvas>
+                    </div>
+                    <div class="card">Card3</div>
+                    <div class="card">Card4</div>
+                </div>
+            </main>
+            <footer class="footer">
+                <!-- <div class="footer_copyright">&copy;2023</div>
+                <div class="footer_byline">Made with &hearts;</div> -->
+            </footer>
+        </div>
+        <script type="text/javascript">
+            const menuIcon = document.querySelector(".menu-icon");
+            const aside = document.querySelector(".aside");
+            const asideClose = document.querySelector(".aside_close-icon");
+
+            function toggle(el, className) {
+                if (el.classList.contains(className)) {
+                    el.classList.remove(className);
+                } else {
+                    el.classList.add(className);
+                }
+            }
+
+            menuIcon.addEventListener("click", function () {
+                toggle(aside, "active");
+            });
+
+            asideClose.addEventListener("click", function () {
+                toggle(aside, "active");
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+        <script type="module" src="chart1.js"></script>
+        <script src="chart2.js"></script>
+    </body>
+</html>

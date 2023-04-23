@@ -44,49 +44,25 @@
             <div class="sidebar">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a id="dashboard" href="/">
                             <i class="fas fa-th-large"></i>
                             <div>Dashboard</div>
                         </a>
                     </li>
-                    <!-- <li>
-                    <a href="#">
-                        <i class="fas fa-user-graduate"></i>
-                        <div>Students</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <div>Teachers</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-users"></i>
-                        <div>Employees</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-chart-bar"></i>
-                        <div>Analytics</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <div>Earnings</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                        <div>Settings</div>
-                    </a>
-                </li> -->
                     <li>
-                        <a href="#">
+                        <a id="mypage" href="/mypage">
+                            <i class="fas fa-user"></i>
+                            <div>My Page</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="odd" href="/odd">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>Odd</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="help" href="#">
                             <i class="fas fa-question"></i>
                             <div>Help</div>
                         </a>
@@ -125,26 +101,31 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="number">?</div>
-                            <div class="card-name">일주일 전력 소비량</div>
+                            <div class="card-name">일주일 전력소비량</div>
                         </div>
                         <div class="icon-box">
                             <i class="fas fa-plug"></i>
                         </div>
                     </div>
-                </div>
-                <div class="cards">
-                    <div class="card date-time"></div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="date-time">?</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="charts">
                     <div class="chart lineChart">
-                        <h2>Earnings (past 12 months)</h2>
+                        <h2>전력예측</h2>
                         <div>
                             <canvas id="lineChart"></canvas>
                         </div>
                     </div>
                     <div class="chart doughnut-chart">
-                        <h2>Employees</h2>
+                        <h2>이상감지</h2>
                         <div>
                             <canvas id="doughnut"></canvas>
                         </div>
@@ -171,5 +152,13 @@
             type="module"
             src="{{ url_for('static', filename='js/time.js') }}"
         ></script>
+        <script
+            type="module"
+            src="{{ url_for('static', filename='js/size.js') }}"
+        ></script>
+        <!-- <script
+            type="module"
+            src="{{ url_for('static', filename='js/sidebar.js') }}"
+        ></script> -->
     </body>
 </html>
