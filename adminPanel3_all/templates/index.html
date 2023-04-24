@@ -70,17 +70,65 @@
                 </ul>
             </div>
             <div class="main">
-                <div class="cards"></div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">1217w</div>
+                            <div class="card-name">현재 전력량</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">42C</div>
+                            <div class="card-name">온도</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">68.34</div>
+                            <div class="card-name">현재 습도</div>
+                        </div>
+                        <div class="icon-box">
+                            <span class="fas fa-tint"></span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">?</div>
+                            <div class="card-name">일주일 전력소비량</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="card-content">
+                            <div class="date-time">?</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div> -->
+                </div>
 
                 <div class="charts">
+                    <div class="chart lineChart">
+                        <h2>전력예측</h2>
+                        <div>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
                     <div class="chart doughnut-chart">
                         <h2>이상감지</h2>
                         <div>
                             <canvas id="doughnut"></canvas>
                         </div>
-                    </div>
-                    <div class="chart sample1">
-                        <h2>sample1</h2>
                     </div>
                 </div>
             </div>
@@ -102,7 +150,7 @@
             type="module"
             src="{{ url_for('static', filename='js/size.js') }}"
         ></script>
-        <!-- <script2
+        <!-- <script
             type="module"
             src="{{ url_for('static', filename='js/sidebar.js') }}"
         ></script> -->

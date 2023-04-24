@@ -1,3 +1,25 @@
+// 전력 예측 그래프 코드
+
+const getMeasurementData = async () => {
+    const response = await fetch("/test");
+    const jsonData = await response.json();
+    const { test1 } = jsonData;
+    const tmp = [NaN, NaN, NaN];
+    const test1Array = test1.concat(tmp);
+    console.log(test1Array);
+    return test1Array;
+};
+
+const getForecastData = async () => {
+    const response = await fetch("/test");
+    const jsonData = await response.json();
+    const { test2 } = jsonData;
+    const tmp = [NaN, NaN, NaN, NaN, NaN];
+    const test2Array = tmp.concat(test2);
+    console.log(test2Array);
+    return test2Array;
+};
+
 (async () => {
     const labels = ["1", "2", "3", "4", "5", "6", "7", "9"];
     const data = {
@@ -5,18 +27,14 @@
         datasets: [
             {
                 label: "측정치",
-                data: [65, 59, 80, 81, 80, NaN, NaN],
+                data: await getMeasurementData(),
                 fill: false,
                 borderColor: "#45e8bc",
-                // segment: {
-                //     borderColor: (ctx) =>
-                //         ctx.p0.parsed.x >= 4 ? "blue" : "red",
-                // },
                 tension: 0.1,
             },
             {
                 label: "예상치",
-                data: [NaN, NaN, NaN, NaN, 46, 25, 30],
+                data: await getForecastData(),
                 fill: false,
                 borderColor: "rgb(0,100,0)",
                 tension: 0.1,

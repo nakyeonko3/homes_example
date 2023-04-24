@@ -1,8 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
 
+# ---------page routing-----------
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -21,6 +22,15 @@ def odd():
 @app.route("/help")
 def help():
     return render_template("index.html")
+
+
+# ---------json data------------
+
+
+@app.route("/test")
+def test():
+    data = {"test1": [65, 59, 80, 81, 80], "test2": [46, 25, 30]}
+    return jsonify(data)
 
 
 if __name__ == "__main__":
