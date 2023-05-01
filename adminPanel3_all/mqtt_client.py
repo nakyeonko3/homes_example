@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import json
 from create_csv import append_csvfile
 
+# 구독할 토픽명, 브로커 주소
 TOPIC = "test_topic"
 HOSTNAME = "nakyeonko3.local"
 
@@ -28,18 +29,15 @@ def on_message(client, userdata, msg):
     append_csvfile(eletric_current)
 
 
-# 새로운 클라이언트 생성
 client = mqtt.Client()
 
-# 콜백 함수 설정 on_connect(브로커에 접속), on_disconnect(브로커에 접속중료), on_subscribe(topic 구독),
-# on_message(발행된 메세지가 들어왔을 때)
+# 콜백 함수 설정 on_connect(브로커에 접속), on_disconnect(브로커에 접속중료), on_subscribe(topic 구독)
 client.on_connect = on_connect
 client.on_disconnect = on_disconnect
 client.on_subscribe = on_subscribe
 client.on_message = on_message
 
-# address : localhost, port: 1883 에 연결
 client.connect(HOSTNAME, 1883)
-# common topic 으로 메세지 발행
+
 client.subscribe(TOPIC, 1)
 client.loop_forever()
